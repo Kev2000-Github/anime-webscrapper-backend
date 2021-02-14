@@ -62,5 +62,5 @@ export async function getInformation() {
     }
     animeList = animeList.filter(anime => +anime['year'].substr(0, 4) >= yearLimit);
     const results = await storeAnimeData(animeList);
-    console.log(new Date(), results);
+    console.log(new Date(), "number of animes added: ", results.length);
 }
