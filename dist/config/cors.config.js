@@ -9,7 +9,7 @@ const path_1 = __importDefault(require("path"));
 dotenv_1.default.config({ path: path_1.default.join(__dirname, "..", "..", ".env") });
 exports.corsOptions = {
     origin: process.env.NODE_ENV === 'production'
-        ? [/TODO/]
+        ? [/localhost/]
         : [/localhost/],
     credentials: true,
     allowedHeaders: 'Content-Type, user-id, X-Requested-With, Accept',
