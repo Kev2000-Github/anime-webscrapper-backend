@@ -1,7 +1,6 @@
 import compression from 'compression';
 import express from 'express';
 import cors from 'cors';
-import morgan from 'morgan';
 import { router } from './modules/app';
 import { corsOptions } from './config/cors.config';
 import { getInformation } from './modules/scrapper/scrapper'
@@ -18,7 +17,7 @@ app.set("PORT", process.env.PORT || 3000);
 setInterval(checkTime, utils.time, getInformation);
 
 //MIDDLEWARES
-if (process.env.NODE_MODE == "development") app.use(morgan('dev'));
+if (process.env.NODE_MODE == "development") app.use(require('morgan')("dev"));
 app.use(compression());
 app.use(cors(corsOptions));
 app.use(express.json());
