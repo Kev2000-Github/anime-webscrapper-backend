@@ -14,6 +14,7 @@ const app = express();
 app.set("PORT", process.env.PORT || 3000);
 
 //SCRAPPER RUNNING IN INTERVALS
+getInformation();
 setInterval(checkTime, utils.time, getInformation);
 
 //MIDDLEWARES
