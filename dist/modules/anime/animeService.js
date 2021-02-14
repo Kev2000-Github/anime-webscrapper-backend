@@ -13,12 +13,14 @@ exports.getAnimes = void 0;
 const Anime = require('../../database/models/anime');
 const getAnimes = (page, limit, exclude = [], include = []) => __awaiter(void 0, void 0, void 0, function* () {
     const options = { page, limit };
-    let query = { tags: {} };
-    if (exclude.length > 0)
-        query['tags']["$not"] = { $in: exclude };
-    if (include.length > 0)
-        query['tags']["$in"] = include;
-    console.log(query);
+    let query = {};
+    if (exclude.length + include.length > 0) {
+        query["tags"] = {};
+        if (exclude.length > 0)
+            query['tags']["$not"] = { $in: exclude };
+        if (include.length > 0)
+            query['tags']["$in"] = include;
+    }
     return yield Anime.paginate(query, options);
 });
 exports.getAnimes = getAnimes;
