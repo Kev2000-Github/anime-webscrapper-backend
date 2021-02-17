@@ -6,7 +6,7 @@ export const corsOptions = {
     origin:
         process.env.NODE_ENV === 'production'
             //@ts-ignore
-            ? [/naughty-raman-a4b400.netlify.app/]
+            ? [new RegExp(process.env.FRONTEND)]
             : [/localhost/],
     credentials: true,
     allowedHeaders: 'Content-Type, user-id, X-Requested-With, Accept',
