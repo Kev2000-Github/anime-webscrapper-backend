@@ -18,7 +18,7 @@ getInformation();
 setInterval(checkTime, utils.time, getInformation);
 
 //MIDDLEWARES
-if (process.env.NODE_MODE == "development") app.use(require('morgan')("dev"));
+if (process.env.NODE_ENV == "development") app.use(require('morgan')("dev"));
 app.use(compression());
 app.use(cors(corsOptions));
 app.use(express.json());
